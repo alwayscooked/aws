@@ -1,72 +1,83 @@
-{
-    "Casio Eddifice EFR-S108D-2AV":{
-        "Weight(g)":100,
-        "Water resistance":"100m",
-        "Power supply":"Quartz Battery",
-        "Country Of Origin":"Japan",
-        "Features":"Sapphire Crystal, Slim Design, Stainless Steel Case, Date Display"
-    },
-    "Seiko Prospex Diver": {
-        "Weight(g)": 150,
-        "Water resistance": "200m",
-        "Power supply": "Automatic",
-        "Country Of Origin": "Japan",
-        "Features": "Rotating Bezel, Luminous Hands, Screw-down Crown"
-    },
-    "Rolex Submariner": {
-        "Weight(g)": 135,
-        "Water resistance": "300m",
-        "Power supply": "Automatic",
-        "Country Of Origin": "Switzerland",
-        "Features": "Ceramic Bezel, Sapphire Crystal, Chronometer Certified"
-    },
-    "Casio G-Shock GA2100": {
-        "Weight(g)": 72,
-        "Water resistance": "200m",
-        "Power supply": "Quartz Battery",
-        "Country Of Origin": "Japan",
-        "Features": "Shock Resistant, World Time, LED Backlight"
-    },
-    "Omega Seamaster 300": {
-        "Weight(g)": 130,
-        "Water resistance": "300m",
-        "Power supply": "Automatic",
-        "Country Of Origin": "Switzerland",
-        "Features": "Helium Escape Valve, Sapphire Crystal, Luminous Markers"
-    },
-    "Tag Heuer Carrera": {
-        "Weight(g)": 115,
-        "Water resistance": "100m",
-        "Power supply": "Automatic",
-        "Country Of Origin": "Switzerland",
-        "Features": "Chronograph, Tachymeter Scale, Sapphire Case Back"
-    },
-    "Citizen Eco-Drive Titanium": {
-        "Weight(g)": 95,
-        "Water resistance": "100m",
-        "Power supply": "Solar-powered",
-        "Country Of Origin": "Japan",
-        "Features": "Titanium Case, Perpetual Calendar, Luminous Hands"
-    },
-    "Breitling Navitimer": {
-        "Weight(g)": 140,
-        "Water resistance": "30m",
-        "Power supply": "Automatic",
-        "Country Of Origin": "Switzerland",
-        "Features": "Slide Rule Bezel, Chronograph, Sapphire Crystal"
-    },
-    "Hamilton Khaki Field": {
-        "Weight(g)": 80,
-        "Water resistance": "50m",
-        "Power supply": "Mechanical",
-        "Country Of Origin": "Switzerland",
-        "Features": "Military Design, Hand-wound, Luminous Numerals"
-    },   
-    "Patek Philippe Nautilus": {
-        "Weight(g)": 125,
-        "Water resistance": "120m",
-        "Power supply": "Automatic",
-        "Country Of Origin": "Switzerland",
-        "Features": "Integrated Bracelet, Date Display, Sapphire Case Back"
-    }
-}
+[
+        {
+            "model":"Casio Eddifice EFR-S108D-2AV",
+            "Weight(g)":100,
+            "Water resistance":"100m",
+            "Power supply":"Quartz Battery",
+            "Country Of Origin":"Japan",
+            "Features":"Sapphire Crystal, Slim Design, Stainless Steel Case, Date Display"
+        },
+        {
+            "model":"Seiko Prospex Diver",
+            "Weight(g)": 150,
+            "Water resistance": "200m",
+            "Power supply": "Automatic",
+            "Country Of Origin": "Japan",
+            "Features": "Rotating Bezel, Luminous Hands, Screw-down Crown"
+        },
+        {
+            "model":"Rolex Submariner",
+            "Weight(g)": 135,
+            "Water resistance": "300m",
+            "Power supply": "Automatic",
+            "Country Of Origin": "Switzerland",
+            "Features": "Ceramic Bezel, Sapphire Crystal, Chronometer Certified"
+        },
+        {
+            "model":"Casio G-Shock GA2100",
+            "Weight(g)": 72,
+            "Water resistance": "200m",
+            "Power supply": "Quartz Battery",
+            "Country Of Origin": "Japan",
+            "Features": "Shock Resistant, World Time, LED Backlight"
+        },
+        {
+            "model":"Omega Seamaster 300",
+            "Weight(g)": 130,
+            "Water resistance": "300m",
+            "Power supply": "Automatic",
+            "Country Of Origin": "Switzerland",
+            "Features": "Helium Escape Valve, Sapphire Crystal, Luminous Markers"
+        },
+        {
+            "model":"Tag Heuer Carrera",
+            "Weight(g)": 115,
+            "Water resistance": "100m",
+            "Power supply": "Automatic",
+            "Country Of Origin": "Switzerland",
+            "Features": "Chronograph, Tachymeter Scale, Sapphire Case Back"
+        },
+        {
+            "model":"Citizen Eco-Drive Titanium",
+            "Weight(g)": 95,
+            "Water resistance": "100m",
+            "Power supply": "Solar-powered",
+            "Country Of Origin": "Japan",
+            "Features": "Titanium Case, Perpetual Calendar, Luminous Hands"
+        },
+        {
+            "model":"Breitling Navitimer",
+            "Weight(g)": 140,
+            "Water resistance": "30m",
+            "Power supply": "Automatic",
+            "Country Of Origin": "Switzerland",
+            "Features": "Slide Rule Bezel, Chronograph, Sapphire Crystal"
+        },
+        {
+            "model":"Hamilton Khaki Field",
+            "Weight(g)": 80,
+            "Water resistance": "50m",
+            "Power supply": "Mechanical",
+            "Country Of Origin": "Switzerland",
+            "Features": "Military Design, Hand-wound, Luminous Numerals"
+        },   
+        {
+            "model":"Patek Philippe Nautilus",
+            "Weight(g)": 125,
+            "Water resistance": "120m",
+            "Power supply": "Automatic",
+            "Country Of Origin": "Switzerland",
+            "Features": "Integrated Bracelet, Date Display, Sapphire Case Back"
+        }
+
+    ]
