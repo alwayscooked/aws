@@ -1,5 +1,5 @@
 import pandas as pd
-import boto3, pathlib,argparse
+import boto3, pathlib,argparse, base64, json
 
 class EC2:
     #KeyFormat='pem'|'ppk'
@@ -23,10 +23,10 @@ class EC2:
         response = ec2.delete_key_pair(KeyName=name)
         return response
 
-    def create_instance(self, key_name, user_data:str = None):
+    def create_instance(self, key_name, bash_script:str = None):
         ec2_client = boto3.client('ec2')
         try:
-            if not user_data:
+            if not bash_script:
                 resp = ec2_client.run_instances(
                     ImageId='ami-03f71e078efdce2c9',
                     InstanceType='t3.micro',
@@ -36,6 +36,8 @@ class EC2:
                 )
             
             else:
+                with open(bash_script, "rb") as data:
+                    user_data = str(base64. b64encode(data.read()), encoding='utf-8')
                 resp = ec2_client.run_instances(
                     ImageId='ami-03f71e078efdce2c9',
                     InstanceType='t3.micro',
@@ -53,6 +55,7 @@ class EC2:
 
     def add_port(self,id_sec_group, proto, port, ip_cidr): 
         ec2 = boto3.client('ec2')
+        port = int(port)
         resp = ec2.authorize_security_group_ingress(
             GroupId=id_sec_group,
             IpPermissions=[
@@ -77,10 +80,15 @@ class EC2:
         
         return resp
 
-    def add_tags(self, id, tags:dict[str:str]):
+    def add_tags(self, id, name_tag, value):
         ec2 = boto3.client('ec2')
         try:
-            resp = ec2.create_tags(Resources=[id], Tags=[tags])
+            resp = ec2.create_tags(Resources=[id], Tags=[
+                {
+                    'Key':name_tag,
+                    'Value':value
+                }
+            ])
         except Exception as e:
             print(e)
             return -1
@@ -165,6 +173,8 @@ class S3:
     def get_list(self, bucket)->dict:
         s3 = boto3.client('s3')
         list_obj = s3.list_object_versions(Bucket=bucket)
+        if not ('Versions' in list_obj):
+            return None
         objects = {}
         for obj in list_obj["Versions"]:
             objects[obj['Key']] = {
@@ -361,14 +371,14 @@ Service operations and args:
     ec2:
         create_key [name_key],[key_format] - create key with name_key, and key_format(optional); key_format can be: pem, ppk(default),
         delete_key [name_key] - delete key with name_key,
-        create_instance [key_name],[user_data] - create instance with specified key_name and user_data(optional),
+        create_instance [key_name],[bash_script] - create instance with specified key_name and bash_script(optional),
         terminate_instance [id_instance] - terminate instance with specified id,
         start_instance [id_instance] - start instance with specified id,
         stop_instance [id_instance] - stop instance with specified id,
         add_port [id_sec_group],[proto],[port],[ip_cidr] - add security group rule to 'Inbound rules' specified id_sec_group; proto - protocol(that will be use in inboard connection), ip_cidr - source ip in cidr format,
         change_name [id],[name] - change value of tag "Name",
-        add_tags [id],[tags] - add info tag; Tag format dict[name_of_tag:value],
-        get_info [id_instance] - get info about specified instance
+        add_tags [id],[name_tag],[value] - add tag 'name_tag' with value 'value',
+        get_info [id_instance] - get info about specified instance,
     s3:
         create_bucket [name],[region] - create bucket with specified name and region(optional), 
         delete_bucket [name] - delete bucket with specified name,
@@ -388,9 +398,6 @@ Service operations and args:
     parser.add_argument("operation", type=str ,help="Read help")
     parser.add_argument("args",type=str, help="args for specific operation")
     args = parser.parse_args()
-    print("Service:",args)
-    print("Operation:",args.operation)
-    print("Args:",args.args.split(','))
     args = vars(args)
     args['args'] = args['args'].split(',')
     main(**args)
